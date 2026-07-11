@@ -526,6 +526,25 @@
     }
     .interest-emoji { font-size: 1rem; }
 
+    /* ── SKILLS & TECHNOLOGY ── */
+    .skills-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.7rem 3rem; max-width: 1000px; margin: 0 auto; }
+    .skill-bar-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.55rem; }
+    .skill-name { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+    .skill-pct { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); }
+    .skill-track {
+      height: 8px; border-radius: 100px; overflow: hidden;
+      background: var(--bg3); border: 1px solid var(--border);
+    }
+    .skill-fill {
+      height: 100%; width: 0; border-radius: 100px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      box-shadow: 0 0 12px var(--cyan-glow);
+      transition: width 1.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal.visible .skill-fill { width: var(--pct); }
+    .skills-note { max-width: 1000px; margin: 2.2rem auto 0; color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono); }
+    @media (max-width: 720px) { .skills-wrap { grid-template-columns: 1fr; } }
+
     /* ── CONTACT ── */
     #contact { border-top: 1px solid var(--border); text-align: center; }
     .contact-glow {
@@ -817,7 +836,7 @@
         <div class="project-header-left">
           <div class="project-name">inputX — Activity &amp; Performance Monitor</div>
           <div class="project-meta">
-            <span class="project-year">2026</span>
+            <span class="project-year">2025</span>
             <span class="project-lang">Python</span>
             <span class="project-lang">PySide6 (Qt)</span>
             <span class="project-source">psutil</span>
@@ -940,7 +959,7 @@
         <div class="project-header-left">
           <div class="project-name">MuteMaster — Discord Voice Bot</div>
           <div class="project-meta">
-            <span class="project-year">2026</span>
+            <span class="project-year">2025</span>
             <span class="project-lang">Python</span>
             <span class="project-source">discord.py</span>
           </div>
@@ -977,6 +996,95 @@
       </div>
     </div>
   </div>
+
+  <div class="reveal">
+    <!-- PROJECT: NovaCore Discord Bot -->
+    <div class="project-card" id="proj-novacore">
+      <div class="project-header" onclick="toggleProject('proj-novacore')">
+        <div class="project-header-left">
+          <div class="project-name">NovaCore Suite — All-in-One Discord Bot</div>
+          <div class="project-meta">
+            <span class="project-year">2026</span>
+            <span class="project-lang">JavaScript</span>
+            <span class="project-lang">Node.js</span>
+            <span class="project-source">discord.js</span>
+            <span class="project-source">Steam Web API</span>
+          </div>
+        </div>
+        <div class="project-toggle">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-body-inner">
+          <!-- Description -->
+          <p class="project-desc">
+            NovaCore Suite is an all-in-one Discord bot: custom welcome messages, a chat &amp; reaction leveling system, a separate voice-activity leveling system, and a member-facing Steam stats suite. Everything runs off a local data file — no database setup required — so it installs cleanly on Windows and shared hosts alike.
+          </p>
+
+          <!-- Features -->
+          <div class="project-section-label">// Features</div>
+          <div class="project-features">
+            <div class="project-feature">Custom welcome embeds posted to a channel you pick, with placeholders</div>
+            <div class="project-feature">Chat &amp; reaction leveling with anti-spam cooldowns — <code>/level</code>, <code>/leaderboard</code></div>
+            <div class="project-feature">Separate voice-activity leveling track — <code>/voicelevel</code>, <code>/voiceleaderboard</code></div>
+            <div class="project-feature">Steam stats suite — link an account and look up anyone's profile, games &amp; achievements</div>
+            <div class="project-feature">Admin setup slash commands for welcome &amp; level-up channels</div>
+            <div class="project-feature">Zero database — data persists to a local JSON file automatically</div>
+          </div>
+
+          <!-- Commands -->
+          <div class="project-section-label">// Setup Commands</div>
+          <div class="project-commands">
+            <div class="cmd-block">
+              <span class="cmd-comment"># 1. Download &amp; extract novacore-bot.zip (link below), then open the folder</span>
+              cd novacore-bot
+            </div>
+            <div class="cmd-block">
+              <span class="cmd-comment"># 2. Configure your bot token, client ID &amp; Steam API key</span>
+              cp .env.example .env
+            </div>
+            <div class="cmd-block">
+              <span class="cmd-comment"># 3. Install dependencies</span>
+              npm install
+            </div>
+            <div class="cmd-block">
+              <span class="cmd-comment"># 4. Register the slash commands with Discord</span>
+              npm run deploy
+            </div>
+            <div class="cmd-block">
+              <span class="cmd-comment"># 5. Start the bot</span>
+              npm start
+            </div>
+          </div>
+
+          <!-- Downloads -->
+          <div class="project-section-label">// Source &amp; Download</div>
+          <div class="project-files">
+            <a href="https://github.com/YeshanSL/NovaCore-Discord-Bot/raw/main/novacore-bot.zip" 
+               target="_blank" 
+               class="file-download">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download NovaCore (.zip)
+            </a>
+            <a href="https://github.com/YeshanSL/NovaCore-Discord-Bot" 
+               target="_blank" 
+               class="file-download">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ACHIEVEMENTS -->
@@ -1005,22 +1113,43 @@
   </div>
 </section>
 
-<!-- INTERESTS -->
+<!-- SKILLS & TECHNOLOGY -->
 <section id="interests">
   <div class="reveal" style="max-width:1000px;margin:0 auto;">
-    <div class="section-label">// 06. interests</div>
-    <h2 class="section-title" style="max-width:1000px;margin:0 auto 3rem;">Beyond the <span>Screen</span></h2>
+    <div class="section-label">// 06. skills &amp; technology</div>
+    <h2 class="section-title" style="max-width:1000px;margin:0 auto 3rem;">Skills &amp; <span>Technology</span></h2>
   </div>
-  <div class="interests-wrap reveal">
-    <div class="interest-pill"><span class="interest-emoji">🏏</span> Cricket</div>
-    <div class="interest-pill"><span class="interest-emoji">🏊</span> Swimming</div>
-    <div class="interest-pill"><span class="interest-emoji">🎮</span> Gaming</div>
-    <div class="interest-pill"><span class="interest-emoji">🎨</span> Art</div>
-    <div class="interest-pill"><span class="interest-emoji">📷</span> Photo Editing</div>
-    <div class="interest-pill"><span class="interest-emoji">🎬</span> Video Editing</div>
-    <div class="interest-pill"><span class="interest-emoji">🔧</span> Tech Stuff</div>
-    <div class="interest-pill"><span class="interest-emoji">🔒</span> Cybersecurity</div>
+  <div class="skills-wrap reveal">
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">Discord Bot Dev</span><span class="skill-pct">89%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:89%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">HTML</span><span class="skill-pct">80%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:80%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">Python</span><span class="skill-pct">60%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:60%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">Git &amp; GitHub</span><span class="skill-pct">70%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:70%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">GUI Dev (PySide6 / Qt)</span><span class="skill-pct">55%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:55%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">Windows &amp; WSL</span><span class="skill-pct">50%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:50%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-bar-head"><span class="skill-name">Java &amp; Node.js</span><span class="skill-pct">20%</span></div>
+      <div class="skill-track"><div class="skill-fill" style="--pct:20%"></div></div>
+    </div>
   </div>
+  <div class="skills-note reveal">// levels are self-rated, based on hands-on project work</div>
 </section>
 
 <!-- CONTACT -->
